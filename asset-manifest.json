@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/mimicci/mimicci.github.io/static/css/main.1afe7f3e.css",
+    "main.js": "/mimicci/mimicci.github.io/static/js/main.84b20c24.js",
+    "static/js/453.8ea60c60.chunk.js": "/mimicci/mimicci.github.io/static/js/453.8ea60c60.chunk.js",
+    "index.html": "/mimicci/mimicci.github.io/index.html",
+    "main.1afe7f3e.css.map": "/mimicci/mimicci.github.io/static/css/main.1afe7f3e.css.map",
+    "main.84b20c24.js.map": "/mimicci/mimicci.github.io/static/js/main.84b20c24.js.map",
+    "453.8ea60c60.chunk.js.map": "/mimicci/mimicci.github.io/static/js/453.8ea60c60.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1afe7f3e.css",
+    "static/js/main.84b20c24.js"
+  ]
+}
