@@ -1,38 +1,211 @@
-.App {
-  text-align: center;
-}
+/* ====================================
+   App.css - ルーレット式ランダム選択
+   ==================================== */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+/* 全体のコンテナ */
+.app-container {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background: linear-gradient(135deg, #f5f3ff 0%, #eff6ff 100%);
+  padding: 2rem;
+}
+
+.content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* タイトル部分 */
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+/* ボタン */
+.button-container {
+  margin-bottom: 1.5rem;
+}
+
+.start-button {
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #9333ea 0%, #2563eb 100%);
   color: white;
+  font-size: 1rem;
 }
 
-.App-link {
-  color: #61dafb;
+.start-button:hover:not(.disabled) {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #7e22ce 0%, #1d4ed8 100%);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.start-button.disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* 結果表示ボックス */
+.result-box {
+  margin-bottom: 1.5rem;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, #dcfce7 0%, #d1fae5 100%);
+  border-left: 4px solid #10b981;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.result-title {
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #065f46;
+  margin: 0 0 0.25rem 0;
+}
+
+.result-detail {
+  font-size: 0.875rem;
+  color: #047857;
+  margin: 0;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
   }
-  to {
-    transform: rotate(360deg);
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* テーブルコンテナ */
+.table-container {
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+/* テーブル */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table thead {
+  background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+}
+
+.data-table th {
+  padding: 0.75rem 1.5rem;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.data-table tbody {
+  background: white;
+}
+
+.data-table tbody tr {
+  border-bottom: 1px solid #e5e7eb;
+  transition: all 0.2s;
+}
+
+.data-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.data-table td {
+  padding: 1rem 1.5rem;
+  font-size: 0.875rem;
+  color: #1f2937;
+  white-space: nowrap;
+}
+
+.data-table td:nth-child(2) {
+  font-weight: 500;
+}
+
+.data-table td:nth-child(3),
+.data-table td:nth-child(4) {
+  color: #6b7280;
+}
+
+/* アニメーション中の行 */
+.data-table tbody tr.row-animating {
+  background: #fef3c7;
+  border-left: 4px solid #f59e0b;
+  transform: scale(1.02);
+}
+
+/* 選択された行 */
+.data-table tbody tr.row-selected {
+  background: #dcfce7;
+  border-left: 4px solid #10b981;
+}
+
+/* 情報ボックス */
+.info-box {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.info-title {
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 0.75rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.info-list {
+  font-size: 0.875rem;
+  color: #374151;
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.info-list li {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: flex-start;
+}
+
+.info-list li strong {
+  font-weight: 600;
+}
+
+/* レスポンシブ対応 */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
   }
 }
