@@ -68,7 +68,7 @@ function App() {
     <div className="app-container">
       <div className="content">
         {/* タイトル */}
-        <h1 className="title">🎰 ルーレット式ランダム選択</h1>
+        <h1 className="title">🎰 店舗ランダム選択ツール</h1>
         <p className="subtitle">
           ボタンを押すと行をかけめぐって最終的に1つを選択します
         </p>
